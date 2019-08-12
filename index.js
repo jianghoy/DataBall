@@ -1,34 +1,37 @@
 var express = require("express");
+var path = require("path");
 var nba = require("nba");
 //var cors = require("cors");
 
 var server = express();
+server.use(express.static('client/build'))
 
 // enable all cors requests
 // (only for simplification)
 //server.use(cors());
 
 server.get("/", function(req, res) {
-  res.send("Hello World!");
+    console.log('request for home');
+  res.sendFile(path.join("index.html"));
 });
 
-server.get("/get-player-ids",function(req,res){
+server.get("/get-player-ids", function(req, res) {
   var playerName = req.query.name;
-  res.send(nba
-    .searchPlayers(playerName)
-    .map(player => ({
+  res.send(
+    nba.searchPlayers(playerName).map(player => ({
       fullName: player.fullName,
       playerId: player.playerId
-    })));
-})
+    }))
+  );
+});
 
 server.get("/get-player-info", function(req, res) {
   let d = new Date();
   console.log(d.toLocaleTimeString() + " " + d.toLocaleDateString());
   console.log("request: get player");
-  console.log("playerName"+req.query.name);
+  console.log("playerName" + req.query.name);
   // hard coded stephen curry
-  var playerID = !req.query.id?201939:req.player.id;
+  var playerID = !req.query.id ? 201939 : req.player.id;
 
   nba.stats
     .playerInfo({ PlayerID: playerID })

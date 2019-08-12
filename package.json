@@ -4,7 +4,8 @@
   "description": "A express.js server and react front end for NBA player shot data visualization",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "serve": "nodemon index.js",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -15,9 +16,8 @@
   "license": "MIT",
   "dependencies": {
     "express": "^4.17.1",
-    "nba": "^4.9.0"
-  },
-  "scripts": {
-    "start" : "node index.js"
+    "nba": "^4.9.0",
+    "nodemon": "^1.19.1",
+    "path": "^0.12.7"
   }
 }
