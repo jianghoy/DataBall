@@ -4,7 +4,7 @@
   "description": "A express.js server and react front end for NBA player shot data visualization",
   "main": "index.js",
   "scripts": {
-    "serve": "nodemon index.js",
+    "dev": "node index.js && (cd client && npm run start)",
     "start": "node index.js"
   },
   "repository": {

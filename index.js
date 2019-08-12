@@ -1,14 +1,10 @@
 var express = require("express");
 var path = require("path");
 var nba = require("nba");
-//var cors = require("cors");
 
 var server = express();
-server.use(express.static('client/build'))
-
-// enable all cors requests
-// (only for simplification)
-//server.use(cors());
+// uncomment this line before going production
+//server.use(express.static('client/build'))
 
 server.get("/", function(req, res) {
     console.log('request for home');
