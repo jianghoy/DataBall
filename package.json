@@ -15,7 +15,7 @@
   "author": "Jianghogn Ying",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "nba": "^4.9.0",
     "nodemon": "^1.19.1",
     "path": "^0.12.7"
